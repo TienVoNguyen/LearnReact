@@ -4,6 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+function emitComment(name) {
+    setInterval(() => {
+        window.dispatchEvent(
+            new CustomEvent(`body-${name}`, {
+                detail: `Body của ${name}`
+            })
+        )
+    }, 2000)
+}
+
+emitComment('DKC')
+emitComment('NTH')
+emitComment('NHCM')
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
