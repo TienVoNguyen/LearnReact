@@ -8,7 +8,7 @@ import {useRef, useState, useEffect, memo} from "react";
 const LearnRef = () => {
     const [count, setCount] = useState(2309)
     const oldCount = useRef()
-    const timerId = useRef()
+    const timerId = useRef(9)
     const divRef = useRef()
     useEffect(() => {
         const rect = divRef.current.getBoundingClientRect()
