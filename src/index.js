@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {ProviderInfo} from "./store";
 function emitComment(name) {
     setInterval(() => {
         window.dispatchEvent(
@@ -22,7 +23,9 @@ emitComment('NHCM')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <ProviderInfo>
+          <App />
+      </ProviderInfo>
   </React.StrictMode>
 );
 
