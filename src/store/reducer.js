@@ -9,21 +9,27 @@ const initState = {
 }
 
 const reducer = (state, action) => {
-    let newInfoList = state.infoList
+    let newState
     switch (action.type) {
         case SET_INFO:
-            return {...state, info: action.payload}
+            newState = {...state, info: action.payload}
+            break
         case ADD_INFO_TO_LIST:
-            return {...state, infoList: [...state.infoList, action.payload]}
+            newState = {...state, infoList: [...state.infoList, action.payload]}
+            break
         case UPDATE_INFO:
-            newInfoList[action.payload.id] = action.payload.value
-            return {...state, infoList: newInfoList}
+            state.infoList[action.payload.id] = action.payload.value
+            newState = {...state}
+            break
         case DEL_INFO_IN_LIST:
+            const newInfoList = [...state.infoList]
             newInfoList.splice(action.payload, 1)
-            return {...state, infoList: newInfoList}
+            newState = {...state, infoList: newInfoList}
+            break
         default:
             throw new Error('Invalid action.')
     }
+    return newState
 }
 
 export { initState }
